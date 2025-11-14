@@ -1,0 +1,104 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Toggle container */
+.toggle {
+    position: relative;
+}
+
+/* Hide the default checkbox */
+.toggle-cb {
+    display: none;
+}
+
+/* Toggle label - the switch background */
+.toggle-label {
+    display: block;
+    width: 160px;
+    height: 80px;
+    background-color: #ccc;
+    border-radius: 80px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+}
+
+/* Toggle inner - handles the text display */
+.toggle-inner {
+    width: 200%;
+    height: 100%;
+    transition: margin-left 0.3s ease;
+    margin-left: -100%;
+    display: flex;
+}
+
+.toggle-inner::before {
+    content: 'Yes';
+    width: 50%;
+    height: 100%;
+    background-color: #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    padding-left: 25px;
+}
+
+.toggle-inner::after {
+    content: 'No';
+    width: 50%;
+    height: 100%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    padding-right: 25px;
+}
+
+/* Toggle switch - the moving circle */
+.toggle-switch {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Checked state - switch moves to the right and shows "Yes" */
+.toggle-cb:checked + .toggle-label .toggle-inner {
+    margin-left: 0;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-switch {
+    transform: translateX(80px);
+}
+
+/* Hover effect */
+.toggle-label:hover {
+    opacity: 0.9;
+}
