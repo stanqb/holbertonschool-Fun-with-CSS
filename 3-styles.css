@@ -1,0 +1,136 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+/* Menu container */
+.menu {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+/* Hide checkbox */
+.menu-open {
+    display: none;
+}
+
+/* Hamburger button */
+.menu-open-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-color: #c9302c;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    z-index: 100;
+}
+
+.menu-open-button:hover {
+    background-color: #a02622;
+}
+
+/* Hamburger lines */
+.menu-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Transform hamburger to X when checked */
+.menu-open:checked + .menu-open-button .menu-line-1 {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
+    opacity: 0;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-3 {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Menu items - hidden by default */
+.menu-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-color: #c9302c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Hover effect - inversion de couleur */
+.menu-item:hover {
+    background-color: white;
+    color: #c9302c;
+}
+
+/* Position items vertically when menu is open - VERS LE BAS */
+.menu-open:checked ~ .menu-item {
+    opacity: 1;
+}
+
+/* Item 1 - en bas */
+.menu-open:checked ~ .menu-item:nth-child(3) {
+    transform: translate(0, 100px) scale(1);
+    transition-delay: 0.05s;
+}
+
+/* Item 2 */
+.menu-open:checked ~ .menu-item:nth-child(4) {
+    transform: translate(0, 200px) scale(1);
+    transition-delay: 0.1s;
+}
+
+/* Item 3 */
+.menu-open:checked ~ .menu-item:nth-child(5) {
+    transform: translate(0, 300px) scale(1);
+    transition-delay: 0.15s;
+}
+
+/* Item 4 */
+.menu-open:checked ~ .menu-item:nth-child(6) {
+    transform: translate(0, 400px) scale(1);
+    transition-delay: 0.2s;
+}
+
+/* Item 5 - le plus bas */
+.menu-open:checked ~ .menu-item:nth-child(7) {
+    transform: translate(0, 500px) scale(1);
+    transition-delay: 0.25s;
+}
